@@ -1,0 +1,45 @@
+[
+    {
+      "country": "AD",
+      "hot dog": 43,
+      "hot dogColor": "hsl(95, 70%, 50%)",
+      "burger": 175
+    },
+    {
+      "country": "AE",
+      "hot dog": 17,
+      "hot dogColor": "hsl(218, 70%, 50%)",
+      "burger": 121
+    },
+    {
+      "country": "AF",
+      "hot dog": 158,
+      "hot dogColor": "hsl(85, 70%, 50%)",
+      "burger": 149
+    },
+    {
+      "country": "AG",
+      "hot dog": 60,
+      "hot dogColor": "hsl(248, 70%, 50%)",
+      "burger": 131
+    },
+    {
+      "country": "AI",
+      "hot dog": 162,
+      "hot dogColor": "hsl(213, 70%, 50%)",
+      "burger": 30
+    },
+    {
+      "country": "AL",
+      "hot dog": 156,
+      "hot dogColor": "hsl(10, 70%, 50%)",
+      "burger": 193
+    },
+    {
+        "country": "AM",
+        "hot dog": 185,
+        "hot dogColor": "hsl(35, 70%, 50%)",
+        "burger": 47
+      
+      }
+    ]

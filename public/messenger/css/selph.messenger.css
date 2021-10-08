@@ -1,0 +1,735 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+.selphio_sequence {
+  /* position: absolute;
+  /* object-fit: cover; */
+  object-fit: revert;
+  /* 
+  width: 100%;
+  height: 135%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  opacity: 0; */
+  -webkit-transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
+}
+
+/* .selphio_sequence.idle { */
+/* opacity: 1;
+  z-index: -999 !important; */
+/* } */
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #fad0d0; 
+}
+
+
+.selphio_sequence.active {
+  opacity: 1;
+}
+
+.selphio_sequence.hidden {
+  opacity: 0;
+}
+
+.selphio__overlay {
+  /* background-color: #0000000f;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-repeat: repeat;
+  z-index: 1; */
+}
+
+.selphio__overlay_dots {
+  display: none;
+
+  /* position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+  z-index: 1; 
+ 
+  background-color: #0000000f;
+  background-image: url("../assets/dots1.png");
+  background-repeat: repeat; */
+}
+
+/* -------------------------------------------------------------------
+ * ## style placeholder text - (_forms.scss)
+ * ------------------------------------------------------------------- */
+
+::-webkit-input-placeholder {
+  color: #b1b1b1;
+}
+
+:-moz-placeholder {
+  color: #b1b1b1;
+  /* Firefox 18- */
+}
+
+::-moz-placeholder {
+  color: #b1b1b1;
+  /* Firefox 19+ */
+}
+
+:-ms-input-placeholder {
+  color: #b1b1b1;
+}
+
+.placeholder {
+  color: #b1b1b1 !important;
+}
+
+.selphio__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+  height: auto;
+  align-items: baseline;
+  /* position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; */
+  /* padding: 5px; */
+}
+
+#selphio__player {
+  width: 100%;
+  /* position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 1; */
+}
+
+#selphio__input {
+  font-family: "montserrat-regular", sans-serif;
+  flex-grow: 1.4;
+}
+
+#selphio__input .dark-bg {
+  color: #fff;
+}
+
+#selphio__input .__header,
+#selphio__input .__body,
+#selphio__input .__footer {
+  /* position: relative; */
+  width: 100%;
+}
+
+#selphio__input .__footer {
+  /* border-bottom: 2px solid rgb(255 250 250);
+  margin: 0 10px; */
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#selphio__dialog {
+  padding: 15px;
+  height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  /* position: relative; */
+}
+
+#selphio__dialog .chat-messages-list {
+  list-style-type: none;
+  padding: 0 5px 0 0;
+  margin: 0;
+  width: 100%;
+}
+
+#selphio__dialog .chat-message {
+  /* position: relative; */
+  font-size: 0;
+  margin-bottom: 10px;
+}
+
+/* #selphio__dialog .chat-message-effect {
+  position: absolute;
+} */
+
+#selphio__dialog .chat-message-bubble {
+  display: inline-block;
+  font-size: 14px;
+  max-width: 280px;
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 18px;
+  min-width: 0;
+  overflow-y: hidden;
+  box-shadow: 1px 2px 18px #888888;
+}
+
+#selphio__dialog
+  .chat-message-self.chat-message-merge-start
+  .chat-message-bubble {
+  border-bottom-right-radius: 0;
+}
+
+#selphio__dialog
+  .chat-message-self.chat-message-merge-middle
+  .chat-message-bubble {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#selphio__dialog
+  .chat-message-self.chat-message-merge-end
+  .chat-message-bubble {
+  border-top-right-radius: 0;
+}
+
+#selphio__dialog .chat-message-self {
+  text-align: right;
+}
+
+#selphio__dialog .chat-message-self .chat-message-bubble,
+#selphio__dialog .chat-message-effect .chat-message-bubble {
+  background: #9b9da9;
+  color: #fff;
+  text-align: left;
+}
+
+#selphio__input .chat-loader-container {
+  /* position: absolute;
+  top: -15px; */
+  width: 100%;
+}
+
+#selphio__input .chat-loader-bar {
+  /* background: #32a8e6; */
+  /* position: absolute; */
+  width: 100%;
+  height: 40px;
+  -webkit-transform: rotateY(0);
+  transform: rotateY(0);
+}
+
+#selphio__input .chat-effect-dots {
+  position: absolute;
+}
+
+#selphio__input .chat-effect-dot {
+  background: #dedede;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+}
+
+#selphio__input .chat-info-container {
+  /* position: absolute;
+  top: -27px; */
+  font-size: 12px;
+  color: #dedede;
+}
+
+#selphio__input .chat-info-typing {
+  /* position: relative;
+  left: 80px; */
+  white-space: nowrap;
+}
+
+#selphio__input button {
+  background-color: transparent;
+  border: none;
+}
+
+#selphio__input button:focus {
+  outline: 1px dotted;
+}
+
+#selphio__input input.dark-bg {
+  color: #fff !important;
+  border-color: #c3c3c3;
+}
+
+#selphio__input input.dark-bg:focus {
+  border-color: #fff;
+}
+
+#selphio__input input[type="text"] {
+  height: 64px !important;
+  /* padding: 0 40px 0 85px; */
+  border: 0;
+  outline: none;
+  color: #161616 !important;
+  font-family: "montserrat-regular", sans-serif;
+  font-size: 17px !important;
+  line-height: 60px !important;
+  /* max-width: 100% !important; */
+  background: transparent !important;
+  transition: all 0.3s ease-in-out;
+  /* width: inherit; */
+  width: 300px;
+}
+
+#selphio__input input {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+#selphio__input input:-webkit-autofill,
+#selphio__input input:-webkit-autofill:hover,
+#selphio__input
+  input:-webkit-autofill:focus
+  #selphio__input
+  input:-webkit-autofill,
+#selphio__input input:-internal-autofill-selected {
+  -webkit-text-fill-color: #cf3e3e;
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: transparent !important;
+  background: none !important;
+}
+
+#selphio__input input[type="text"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+#selphio__input .__btn {
+  border-color: #fff;
+  color: #fff;
+  border-radius: 0;
+  outline: 1px solid;
+  margin-left: 3px;
+  padding: 5px 10px;
+}
+
+#selphio__input.collapsed {
+  opacity: 0;
+  margin-top: 50px;
+  visibility: hidden;
+}
+
+#selphio__submit {
+  width: 30px;
+  height: 30px;
+  /* position: absolute;
+  right: 0;
+  font-size: 0.8em;
+  top: 20px; */
+}
+
+#selphio__menuToggle {
+  /* position: absolute; */
+  /* left: 0px;
+  top: 10px; */
+  height: 42px;
+  width: 42px;
+  fill: white;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#selphio__sttToggle {
+  /* position: absolute; */
+  /* left: 40px;
+  top: 10px; */
+  height: 42px;
+  width: 42px;
+  fill: rgb(8, 8, 8);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#selphio__sttToggle.active {
+  fill: #f5d33f;
+}
+
+/* 
+#selphio__menu {
+  position: absolute; 
+   bottom: 5em; 
+   left: 0;
+   z-index: 3;
+  width: 300px;
+  margin-top: 0;
+  height: 200px;
+  transition: all 0.5s ease-in-out;
+  overflow: auto;
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+  
+  /* IE and Edge */
+
+/* Firefox
+  background-color: #1d1d1dea;
+  padding: 20px 14px;
+  border-radius: 10px;
+  text-align: left;
+}
+*/
+
+#selphio__menu h2 {
+  padding-bottom: 1em;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#selphio__menu::-webkit-scrollbar {
+  display: none;
+}
+
+#selphio__menu.collapsed {
+  opacity: 0;
+  bottom: 0;
+  visibility: hidden;
+}
+
+#selphio__menu ul {
+  list-style-type: none;
+}
+
+#selphio__menu ul > li {
+  margin: 15px 0;
+}
+
+#selphio__menu ul > li a {
+  border: 0.1rem solid #ffffff;
+  padding: 5px 10px;
+  color: #fff;
+}
+
+video::cue {
+  font-size: 50%;
+}
+
+video::-webkit-media-text-track-display {
+}
+
+video::-webkit-media-text-track-container {
+}
+
+#selphio__chatToggle {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  fill: #fff;
+  background: rgb(255 255 255);
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: 0px 3px 16px 0px rgb(0 0 0 / 60%), 0 3px 1px -2px rgb(0 0 0 / 20%),
+    0 1px 5px 0 rgb(0 0 0 / 12%);
+  z-index: 9999999;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.selphio__container.full #selphio__input {
+  max-width: 375px;
+}
+
+#selphio__loadmask {
+  z-index: 9999999;
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+}
+
+#selphio__spinner {
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -55px 0 0 -55px;
+  width: 110px;
+  height: 110px;
+}
+
+#selphio__logo {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+}
+
+#selphio__spinner .path {
+  stroke: #000;
+  stroke-linecap: square;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.selphio__loading {
+  display: none !important;
+}
+
+.selphio__fade-in {
+  opacity: 1;
+  animation-name: sioFadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
+}
+
+@keyframes sioFadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.selphio__fade-out {
+  opacity: 1;
+  animation-name: sioFadeOutOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+}
+
+@keyframes sioFadeOutOpacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* @media only screen and (max-width: 600px) { */
+/* #selphio__input {
+    bottom: 0px;
+    right: 0px;
+    height: 40vh;
+    width: 100%;
+  } */
+/* background: #000000b4; */
+/* #selphio__player {
+    height: 60vh;
+  } */
+/* top: 0px;
+    right: 0px;
+    max-w idth: 400px; */
+/* #selphio__dialog {
+    height: 35vh;
+  } */
+/* #selphio__input input[type="text"] {
+    width: 100%;
+    padding: 0 40px 0 85px; */
+/* } */
+
+/* } */
+
+#selphio__input {
+  font-family: "montserrat-regular", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-grow: 1.4;
+  width: 100%;
+}
+
+.list-group {
+  width: 100%;
+}
+
+@media screen and (min-width: 480px) {
+  .list-group {
+    /* position: absolute;
+    top: 70vh; */
+    width: 100% !important;
+  }
+
+  .selphio__overlay_dots {
+    position: absolute;
+    width: 34%;
+    height: 100%;
+    top: 0;
+    left: 306px;
+    display: block;
+    z-index: 1;
+    background-color: #0000000f;
+    /* background-image: url(../assets/dots1.png); */
+    background-repeat: repeat;
+  }
+
+  .avatar {
+    display: block !important;
+    margin: 20px;
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 1px 2px 18px #e4dfdf;
+    background-color: #ffffff;
+  }
+
+  .avator_wrap {
+    display: flex !important;
+    background-color: #edf1f5;
+    box-shadow: 1px 1px 3px #e9e1e1;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+  }
+  #selphio__input .__body {
+    flex-grow: 1;
+  }
+
+  #selphio__dialog {
+    padding: 15px;
+    overflow-y: auto;
+    width: 100%;
+    height: 350px;
+
+    /* max-height: 750px; */
+
+    /* position: relative; */
+  }
+  #selphio__input input[type="text"] {
+    width: 100%;
+    /* padding: 0 40px 0 85px; */
+
+    height: 64px !important;
+    /* padding: 0 40px 0 85px; */
+    border: 0;
+    outline: none;
+    color: #161616 !important;
+    font-family: "montserrat-regular", sans-serif;
+    font-size: 17px !important;
+    line-height: 60px !important;
+    /* max-width: 100% !important; */
+    background: transparent !important;
+    transition: all 0.3s ease-in-out;
+    /* width: inherit; */
+  }
+
+  .selphio__container video {
+    height: 100% !important;
+  }
+
+  .selphio__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    align-items: flex-end;
+    /* background: #000000b4; */
+  }
+  #selphio__input {
+    font-family: "montserrat-regular", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100vh;
+    width: 400px;
+    flex: 0.5;
+    background: #f5f5f5;
+  }
+  #selphio__player {
+    height: 100vh;
+    background: #f5f5f5;
+    width: auto;
+  }
+
+  #selphio__menu {
+    scrollbar-width: none; /* Firefox */
+    background-color: #1d1d1dea;
+    padding: 20px 14px;
+    border-radius: 10px;
+    text-align: left;
+  }
+
+
+}
+
+#selphio__inputForm {
+  align-items: baseline;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+
+}
+
+.list-group .list-group-item:hover {
+  background-color: #2171cc;
+}
+
+.avatar {
+  /* 
+  margin: 20px;
+  vertical-align: middle;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 1px 2px 18px #888888;
+  background-color  : #2171cc;
+  
+  */
+  display: none;
+}
+
+.avator_wrap {
+  display: none;
+  /* background-color: #dfe3e6;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  border-radius:20px; */
+}
+
+.list-group {
+  width: 100%;
+  /* position: absolute;
+  top: 89vh; */
+}
+
+iframe {
+  width: 360px;
+}
+
+/* TODO: ADJUST VIDEO(CHECK LAPTOP SCREEN) */
